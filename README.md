@@ -1,7 +1,7 @@
 ## 프레이(Prism + Gray)🙏의 쥬스메이커 🧃
 
 ### 목차
-[1. 소개](#1.-소개)  
+[1. 소개](#1-소개)  
 [2. 팀원](#2-팀원)  
 [3. 타임라인](#3-타임라인)  
 [4. 프로젝트 구조](#4-프로젝트-구조)  
@@ -48,7 +48,7 @@
 | 초기 화면에서<br>재고 수정 화면으로 이동 | ![img](https://raw.githubusercontent.com/PrismSpirit/ios-juice-maker/step3/Images/JuiceMaker_simulate_case3.gif) |
 
 ### 6. 트러블슈팅
-#### ❗️에러 처리
+#### 1) ❗️ 에러 처리
 ##### 📌 문제 상황
 ```swift
 func checkStock(fruit: Fruit, amount: Int) -> Bool {
@@ -77,7 +77,7 @@ func checkStock(fruit: Fruit, amount: Int) throws {
 ```
 error propagation을 통해 `takeStock()`이 유효하지 않은 과일을 받을 경우 `FruitStoreError.fruitNotFound`, 과일의 수량이 부족할 때 `FruitStoreError.outOfStock`을 throw해 `juiceMaker()`에서 error handling을 할 수 있도록 코드를 수정했습니다.
 
-#### ❗️과일 재고 데이터에 대한 접근
+#### 2) ❗️ 과일 재고 데이터에 대한 접근
 ##### 📌 문제 상황
 ```swift
 //JuiceMakerViewController.swift
@@ -134,7 +134,7 @@ final class FruitStore {
 ```
 singleton pattern을 활용해 FruitStore가 shared 인스턴스를 갖도록 구성했습니다. 프로그램에 전역적 상태를 도입하여 코드의 결합도를 높이는 문제점이 있지만, 프로젝트의 규모와 해당 패턴을 사용함으로써 얻는 데이터 공유의 용이함의 이익을 종합적으로 고려했을 때 본 프로젝트에 가장 적합하다고 판단해 singleton pattern을 채택했습니다.
 
-#### ❗️label에 대한 불필요한 update
+#### 3) ❗️ label에 대한 불필요한 update
 ##### 📌 문제 상황
 ```swift
 // StockEditViewController.swift
@@ -230,3 +230,8 @@ func updateSingleFruitStepperValue(fruit: Fruit, quantity: Int) {
 📍[Swift documentation: Protocol(Delegation)](<https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Delegation>)  
 📍[Swift documentation: UIStepper](<https://developer.apple.com/documentation/uikit/uistepper>)  
 📍[Swift documentation: NotificationCenter](<https://developer.apple.com/documentation/foundation/notificationcenter>)  
+📍[Swift documentation: Closures](<https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures>)  
+📍[How To: Pass Data Between View Controllers in Swift](<https://www.appypie.com/pass-data-between-view-controllers-swift-how-to>)  
+📍[Delegates VS Notifications VS Observations in iOS](<https://medium.com/@azeemireland/delegates-vs-notifications-vs-observations-in-ios-fa312e66c0ff>)  
+📍[Class Diagram to convey the Delegate Pattern](<https://itnext.io/class-diagram-to-convey-the-delegate-pattern-bca0a8b28d2d>)  
+📍[@IBOutlet에서 weak 키워드를 사용하는 이유](<https://yagom.net/forums/topic/%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B3%B4%EB%93%9C%EC%99%80-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EB%B9%8C%EB%8D%94%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B7%B0-%EC%83%9D%EC%84%B1%EC%8B%9C/>)
